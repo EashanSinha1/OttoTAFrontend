@@ -14,6 +14,7 @@ const lexend = Lexend({
   display: "swap",
 });
 
+
 interface Message {
   id: number;
   text: string;
@@ -131,6 +132,7 @@ const ChatInterface: FC<{}> = () => {
           <div className={lexend.className}>
           <h1 className='text-zinq-200 text-[40px] font-medium font-lexend'>OttoChat</h1>
           </div>
+
         </div>
         <div className="flex-grow overflow-auto p-4 space-y-2 pt-10">
           {messages.map((message) => (
@@ -156,6 +158,7 @@ const ChatInterface: FC<{}> = () => {
         </form>
       </div>
       <div className="bg-purple-700 w-72">
+
       {sources && sources.map((document: any, index) => (
             <SourceComponent
               key={index + Math.floor(Math.random() * 10).toString()}
