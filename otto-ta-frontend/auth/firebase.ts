@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: "otto-ta.appspot.com",
   messagingSenderId: "835465422972",
   appId: "1:835465422972:web:1a4d891c585353115801f9",
-  measurementId: "G-H8DL9JDX42"
+  measurementId: "G-H8DL9JDX42",
 };
 
 // Initialize Firebase
