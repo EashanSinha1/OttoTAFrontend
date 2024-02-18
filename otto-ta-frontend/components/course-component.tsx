@@ -1,4 +1,12 @@
 import React, { FC, useState } from "react";
+import { Lexend } from "next/font/google";
+import Link from "next/link";
+
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  display: "swap",
+});
 interface CourseComponentProps {
   courseName: string;
   courseNum: string;
@@ -49,6 +57,24 @@ const CourseComponent: FC<CourseComponentProps> = ({
   };
 
   return (
+    // <div className={lexend.className}>
+    //     <div className="cursor-pointer hover:scale-105 flex flex-col border-[2px] shadow-sm w-[285px] h-[210px] bg-white rounded-[25px] shadow" style={selStyle} onClick={onClickCourse}>
+    //         <div className="w-[270px] h-[104px] left-[5px] top-[5px] absolute bg-fuchsia-400 rounded-[23px]" />
+    //         <div className="w-[252px] left-[16.50px] top-[118px] absolute text-center text-fuchsia-400 text-lg font-bold font-lexend leading-none" style={textStyle}>{courseName}</div>
+    //         {/* <div className="w-[252px] left-[17px] top-[144px] absolute text-center text-zinc-600 text-xs font-medium font-lexend">Data Structures and Algorithms</div> */}
+    //         <div className="w-[127px] h-7 left-[79px] top-[168px] absolute">
+    //             <button className="w-[127px] h-7 left-0 top-0 absolute bg-purple-600 rounded-lg flex items-center justify-center hover:bg-purple-400 hover:text-white transition duration-300"
+    //                 onClick={() => {
+    //                   setSelected(!selected);
+    //                   onClickCourse();
+    //                 }}
+    //               >
+    //                 <span className="text-center text-white text-sm font-medium font-lexend">Select</span>
+    //           </button>
+    //         </div>
+    //     </div>
+    // </div>
+
     <div
       style={selStyle}
       onClick={onClickCourse}
@@ -60,13 +86,13 @@ const CourseComponent: FC<CourseComponentProps> = ({
         <h1 className="text-center w-full" style={textStyle}>
           {courseName}
         </h1>
-        <button
+        <button className="w-[127px] h-7 left-0 top-0 absolute bg-purple-600 rounded-lg flex items-center justify-center hover:bg-purple-400 hover:text-white transition duration-300"
           onClick={() => {
             setSelected(!selected);
             onClickCourse();
           }}
         >
-          Select
+          <span className="text-center text-white text-sm font-medium font-lexend">Select</span>
         </button>
       </div>
     </div>

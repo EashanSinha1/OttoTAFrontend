@@ -31,3 +31,8 @@ body {
     text-wrap: balance;
   }
 }
+
+.tk-sub-title{
+  margin-top: -10px;
+
+}

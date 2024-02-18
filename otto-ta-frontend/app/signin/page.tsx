@@ -40,7 +40,7 @@ const Home: FC = () => {
               <div className="w-[543px] h-[105px] left-0 top-0 absolute bg-white rounded-[20px] border-2 border-neutral-400" />
               {/* <div className="left-[129px] top-[31px] absolute text-center text-neutral-400 text-[35px] font-medium font-lexend">Continue with Google</div> */}
               <SignInWidget onSignIn={() => {
-                router.push("/")
+                router.push("/token")
                   
                 }} signInText="Continue with Google" />
               <div className="w-12 h-12 left-[55px] top-[29px] absolute" />
