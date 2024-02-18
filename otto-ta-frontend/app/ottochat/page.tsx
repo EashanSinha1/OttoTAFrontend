@@ -6,6 +6,13 @@ import {useRouter} from 'next/navigation';
 import { useSearchParams } from 'next/navigation'
 import { set } from 'firebase/database';
 import SourceComponent from '@/components/SourceComponent';
+import { Lexend } from "next/font/google";
+import Link from "next/link";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  display: "swap",
+});
 
 
 interface Message {
@@ -122,7 +129,10 @@ const ChatInterface: FC<{}> = () => {
     <div className="flex h-screen bg-purple-50">
       <div className="flex flex-col flex-grow">
         <div className='w-full flex items-center justify-center pt-5'>
-          <h1 className='text-black'>OttoChat</h1>
+          <div className={lexend.className}>
+          <h1 className='text-zinq-200 text-[40px] font-medium font-lexend'>OttoChat</h1>
+          </div>
+
         </div>
         <div className="flex-grow overflow-auto p-4 space-y-2 pt-10">
           {messages.map((message) => (
@@ -147,7 +157,8 @@ const ChatInterface: FC<{}> = () => {
           </button>
         </form>
       </div>
-      <div className="bg-red-500 w-72">
+      <div className="bg-purple-700 w-72">
+
       {sources && sources.map((document: any, index) => (
             <SourceComponent
               key={index + Math.floor(Math.random() * 10).toString()}

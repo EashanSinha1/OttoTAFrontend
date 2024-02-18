@@ -2,7 +2,7 @@
 import { FC, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
-const FlashcardSelectPage: FC = () => {
+const PracticeSelectPage: FC = () => {
   const router = useRouter();
   const [files, setFiles] = useState([
     "L1 - LinkedLists and ArrayLists",
@@ -74,4 +74,4 @@ const FlashcardSelectPage: FC = () => {
   );
 };
 
-export default FlashcardSelectPage;
+export default PracticeSelectPage;
