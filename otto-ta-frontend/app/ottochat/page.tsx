@@ -62,6 +62,8 @@ const ChatInterface: FC<{}> = () => {
   const fetchStreamResponse = async (question: string) => {
     setSources([]);
     setAnswerText('');
+    const text = inputText;
+    setInputText('');
     const user = "tEmpiJVhWOUBxhoD5acyaNluvIw1"
     const course = "85970000000158100"
     const files="Lab+04+C02+slides.pdf"
@@ -69,6 +71,7 @@ const ChatInterface: FC<{}> = () => {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
+    
   
     const reader = response?.body?.getReader();
     let decoder = new TextDecoder();
