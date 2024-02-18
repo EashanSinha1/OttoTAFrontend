@@ -1,0 +1,117 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@200;300&display=swap");
+
+.card {
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  transform-style: preserve-3d;
+  align-items: center;
+  justify-content: center;
+
+  /* Content Alignment*/
+  position: relative;
+  border-radius: 15px;
+  border: 2px thin white;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+
+  transition: transform 800ms;
+}
+.card.flipped {
+  transform: rotateY(180deg);
+}
+.card-front,
+.card-back {
+  height: 100%;
+  width: 100%;
+  border-radius: 15px;
+
+  backface-visibility: hidden;
+  -webkit-backface-visibility: hidden;
+
+  /*Alignment*/
+  position: absolute;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: white;
+}
+
+.card-front {
+  background-color: #1c89b8a6;
+  display: flex;
+  flex-direction: row;
+}
+.card-back {
+  background-color: #005a9c;
+  transform: rotateY(180deg);
+  color: rgba(34, 164, 140, 0.419);
+}
+.card-title {
+  position: absolute;
+  top: 175px;
+  width: 60%;
+  font-size: larger;
+  text-align: center;
+  user-select: none;
+}
+.card-hint-button {
+  position: absolute;
+  top: 420px;
+  left: 700px;
+  width: fit-content;
+  text-align: center;
+  background-color: #1b9993;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-size: larger;
+  cursor: pointer;
+}
+.card-hint {
+  position: absolute;
+  top: 400px;
+  width: 60%;
+  text-align: center;
+  user-select: none;
+}
+
+.card-answer {
+  position: absolute;
+  top: 175px;
+  width: 90%;
+  font-size: larger;
+  color: white;
+  text-align: center;
+}
+
+.button-holder {
+  position: absolute;
+  top: 310px;
+  width: 70%;
+  left: 25px;
+  cursor: pointer;
+}
+
+.card-project-button {
+  width: 110%;
+  font-size: 2.5em;
+
+  padding: 14px;
+  border-radius: 12px;
+  background-color: rgb(32, 108, 143);
+  color: white;
+  border: none;
+  transition: background-color 0.05s ease-in-out;
+  font-size: 0.9em;
+  cursor: pointer;
+}
+
+.card-project-button:hover {
+  background-color: #1b9993;
+}
+
+.card-project-button:active {
+  background-color: #8ec6ff;
+}
