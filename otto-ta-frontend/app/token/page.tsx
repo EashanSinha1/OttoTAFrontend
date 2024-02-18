@@ -24,6 +24,11 @@ const TokenPage: FC = () => {
     console.log(status)
     console.log(token);
     if(data === true) {
+      const uid = auth.currentUser?.uid;
+      const setAuth = await fetch("https://back.otto-ta.tech/users/" + uid + "/" + token, {
+        method: 'POST',
+      });
+      console.log(setAuth.status)
       router.push("/selectclasses")
     } else {
       setToken(prev =>'')
