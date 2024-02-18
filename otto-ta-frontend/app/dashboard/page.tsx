@@ -52,8 +52,8 @@ const DashboardPage: FC = () => {
       <h1 className="text-6xl pt-10">Which course did you want help on</h1>
       <h1
         className="text-2xl pt-10"
-              // eslint-disable-next-line react/no-unescaped-entities
->
+        // eslint-disable-next-line react/no-unescaped-entities
+      >
         Do not worry, you can revisit the other courses later!
       </h1>
 

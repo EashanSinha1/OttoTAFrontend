@@ -32,7 +32,8 @@ function Card(props: CardProps) {
       <div className="card-front">
         <h1 className="card-title">{props.question}</h1>
 
-        <button className="card-hint-button"
+        <button
+          className="card-hint-button"
           onClick={(e) => {
             e.stopPropagation();
             setShowHint(!showHint);
@@ -40,8 +41,7 @@ function Card(props: CardProps) {
         >
           Hint
         </button>
-        {showHint && <p className="card-hint"
-        >{props.hint}</p>}
+        {showHint && <p className="card-hint">{props.hint}</p>}
       </div>
       <div className="card-back">
         <h1 className="card-answer">{props.answer}</h1>

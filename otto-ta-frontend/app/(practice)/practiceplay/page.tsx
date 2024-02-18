@@ -5,6 +5,8 @@ import { useRouter } from "next/navigation";
 const MultipleChoiceQuestionPage: FC = () => {
   const router = useRouter();
   const [showHint, setShowHint] = useState(false);
+  const [selectedChoice, setSelectedChoice] = useState("bob");
+
   const questionInfo = {
     question: "What is the capital of France?",
     choices: ["Paris", "Rome", "Berlin", "Madrid"],
@@ -19,7 +21,11 @@ const MultipleChoiceQuestionPage: FC = () => {
         </h1>
         <div className="flex flex-col w-full">
           {questionInfo.choices.map((choice, index) => (
-            <button key={index} className="mb-4 px-4 py-2 bg-purple-200 rounded-md text-purple-700 font-semibold hover:bg-purple-300">
+            <button
+              key={index}
+              className={`mb-4 px-4 py-2 rounded-md text-purple-700 font-semibold hover:bg-purple-300 ${selectedChoice === choice ? "bg-purple-300" : "bg-purple-200"}`}
+              onClick={() => setSelectedChoice(choice)}
+            >
               {choice}
             </button>
           ))}
@@ -34,13 +40,18 @@ const MultipleChoiceQuestionPage: FC = () => {
           <div className="mt-4 px-4 py-2 bg-yellow-100 rounded-md text-yellow-700">
             {questionInfo.hint}
           </div>
-        ) : <div className="pb-10 pt-1"></div>}
-         <div className="flex justify-between w-full mt-6">
-        <button className="px-4 py-2 bg-blue-200 rounded-md text-blue-700 font-semibold hover:bg-blue-300">Previous</button>
-        <button className="px-4 py-2 bg-blue-200 rounded-md text-blue-700 font-semibold hover:bg-blue-300">Next</button>
+        ) : (
+          <div className="pb-10 pt-1"></div>
+        )}
+        <div className="flex justify-between w-full mt-6">
+          <button className="px-4 py-2 bg-blue-200 rounded-md text-blue-700 font-semibold hover:bg-blue-300">
+            Previous
+          </button>
+          <button className="px-4 py-2 bg-blue-200 rounded-md text-blue-700 font-semibold hover:bg-blue-300">
+            Next
+          </button>
+        </div>
       </div>
-      </div>
-
     </main>
   );
 };

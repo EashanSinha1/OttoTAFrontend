@@ -23,11 +23,13 @@ const FlashcardSelectPage: FC = () => {
   const [checkedFiles, setCheckedFiles] = useState<string[]>([]);
 
   const handleFileCheck = (file: string, isChecked: boolean) => {
-    setCheckedFiles((prevFiles) => isChecked ? [...prevFiles, file] : prevFiles.filter((f) => f !== file));
+    setCheckedFiles((prevFiles) =>
+      isChecked ? [...prevFiles, file] : prevFiles.filter((f) => f !== file),
+    );
   };
 
   const handleGenerateReview = async () => {
-    const filesString = checkedFiles.join(',');
+    const filesString = checkedFiles.join(",");
     // const response = await fetch(`http://address.tech/get_questions/${filesString}`);
     // const data = await response.json();
     // if(response.status === 200) {
@@ -53,7 +55,10 @@ const FlashcardSelectPage: FC = () => {
               onChange={(e) => handleFileCheck(file, e.target.checked)}
               className="w-6 h-6 mr-2"
             />
-            <label htmlFor={`file-${index}`} className="flex-1 text-lg cursor-pointer text-black">
+            <label
+              htmlFor={`file-${index}`}
+              className="flex-1 text-lg cursor-pointer text-black"
+            >
               {file}
             </label>
           </div>

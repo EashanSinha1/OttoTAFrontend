@@ -4,7 +4,13 @@ import Image from "next/image";
 import { useRouter } from "next/navigation";
 import { auth } from "../../auth/firebase";
 import CourseComponent from "@/components/course-component";
+import { Lexend } from "next/font/google";
+import Link from "next/link";
 
+const lexend = Lexend({
+  subsets: ["latin"],
+  display: "swap",
+});
 const SelectClassesPage: FC = () => {
   const [courses, setCourses] = useState([{ name: "", num: "" }]);
   const [selectedCourses, setSelectedCourses] = useState([
@@ -40,7 +46,7 @@ const SelectClassesPage: FC = () => {
     if (selectedCourses.includes(course || "")) {
       setSelectedCourses(selectedCourses.filter((c) => c !== course));
     } else {
-      if (selectedCourses.length >= 5) {
+      if (selectedCourses.length > 5) {
         alert(`You can only select ${5} courses`);
         return;
       }
@@ -48,39 +54,51 @@ const SelectClassesPage: FC = () => {
     }
   };
   return (
-    <main className="flex min-h-screen flex-col items-center py-0 bg-gradient-to-br from-purple-700 to-purple-300/90">
-      <h1 className="text-4xl pt-10">Choose what classes you want to import</h1>
-
-      <div className="grid grid-cols-3 gap-x-10 gap-y-5">
-        {courses.map((course, index) => (
-          <CourseComponent
-            key={index}
-            courseName={course.name}
-            courseNum={course.num}
-            onClickCourse={() => {
-              if (selectedCourses.includes(course || "")) {
-                setSelectedCourses(selectedCourses.filter((c) => c !== course));
-              } else {
-                if (selectedCourses.length >= 5) {
-                  alert(`You can only select ${5} courses`);
-                  return;
+    <main className="flex min-h-screen flex-col items-center py-0 bg-gradient-to-br from-purple-700 to-purple-300/90 pb-20">
+      <div className={lexend.className}>
+        <div className="flex justify-center w-full">
+          <h1 className="text-4xl pt-10 pb-5">
+            Choose what classes you want to import
+          </h1>
+        </div>
+        <div className="grid grid-cols-3 gap-x-10 gap-y-5 pb-10">
+          {courses.map((course, index) => (
+            <CourseComponent
+              key={index}
+              courseName={course.name}
+              courseNum={course.num}
+              onClickCourse={() => {
+                if (selectedCourses.includes(course || "")) {
+                  setSelectedCourses(
+                    selectedCourses.filter((c) => c !== course),
+                  );
+                } else {
+                  if (selectedCourses.length >= 5) {
+                    alert(`You can only select ${5} courses`);
+                    return;
+                  }
+                  setSelectedCourses([...selectedCourses, course]);
                 }
-                setSelectedCourses([...selectedCourses, course]);
-              }
-              console.log(`Course ${course.name} clicked`);
+                console.log(`Course ${course.name} clicked`);
+              }}
+            />
+          ))}
+        </div>
+
+        <div className="flex justify-center w-full">
+          <button
+            className="w-[260px] h-12 bg-purple-600 rounded-[14px] flex items-center justify-center hover:bg-purple-400 hover:text-white transition duration-300 font-lexend"
+            onClick={() => {
+              console.log("I am continue");
+              router.push("/import");
             }}
-          />
-        ))}
+          >
+            <span className="text-center text-white text-xl font-medium font-lexend">
+              Continue
+            </span>
+          </button>
+        </div>
       </div>
-      <button
-        className="w-40 h-40 bg-slate-500 text-white"
-        onClick={() => {
-          console.log("I am continue");
-          router.push("/import");
-        }}
-      >
-        Continue
-      </button>
     </main>
   );
 };
