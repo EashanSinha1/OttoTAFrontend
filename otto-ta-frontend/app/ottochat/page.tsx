@@ -57,7 +57,7 @@ const ChatInterface: FC<{}> = () => {
     const user = "tEmpiJVhWOUBxhoD5acyaNluvIw1"
     const course = "85970000000158100"
     const files="Lab+04+C02+slides.pdf"
-    const response = await fetch(`https://back.otto-ta.tech/query_class?question=${inputText}&user_id=${user}&course_id=${course_id}&files=${files}`, {
+    const response = await fetch(`https://back.otto-ta.tech/query_class?question=${inputText}&user_id=tyler&course_id=${course_id}&files=${files}`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
     });
