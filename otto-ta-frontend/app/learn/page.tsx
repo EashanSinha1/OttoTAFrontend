@@ -36,13 +36,13 @@ const LearnPage = () => {
           </div>
           <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <button onClick={handleFlashcardsClick} className="flex-grow text-sm sm:text-base py-3 rounded-lg bg-purple-700 hover:bg-purple-400 focus:outline-none transition duration-300 ease-in-out font-lexend">
-              Flashcards
+            <span className="text-center text-white text-xl font-regular font-lexend">Flashcards</span>
             </button>
             <button onClick={handlePracticeQuizClick} className="flex-grow text-sm sm:text-base py-3 rounded-lg bg-purple-700 hover:bg-purple-400 focus:outline-none transition duration-300 ease-in-out font-lexend">
-              Practice Quiz
+            <span className="text-center text-white text-xl font-regular font-lexend">Practice Quiz</span>
             </button>
             <button onClick={handleOttoChatClick} className="flex-grow text-sm sm:text-base py-3 rounded-lg bg-purple-700 hover:bg-purple-400 focus:outline-none transition duration-300 ease-in-out font-lexend">
-              OttoChat
+            <span className="text-center text-white text-xl font-regular font-lexend">OttoChat AI</span>
             </button>
           </div>
           {/* <div className="text-center">
