@@ -14,7 +14,7 @@ const Home: FC = () => {
       <h1 className="text-4xl font-bold text-black pt-10 pb-5"
       >Sign in with google</h1>
     <SignInWidget onSignIn={() => {
-      router.push("/hom")
+      router.push("/token")
         
       }} signInText="Continue with Google" />
 
