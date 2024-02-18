@@ -50,9 +50,12 @@ const DashboardPage: FC = () => {
   return (
     <main className="flex min-h-screen flex-col items-center py-0 bg-gradient-to-br from-purple-700 to-purple-300/90">
       <h1 className="text-6xl pt-10">Which course did you want help on</h1>
-      <h1 className="text-2xl pt-10"
-      // eslint-disable-next-line react/no-unescaped-entities
-      >Don't worry, you can revisit the other courses later!</h1>
+      <h1
+        className="text-2xl pt-10"
+        // eslint-disable-next-line react/no-unescaped-entities
+      >
+        Don't worry, you can revisit the other courses later!
+      </h1>
 
       <div className="grid grid-cols-3 gap-x-10 gap-y-5">
         {courses.map((course, index) => (
@@ -61,7 +64,6 @@ const DashboardPage: FC = () => {
             courseName={course.name}
             courseNum={course.num}
             onClickCourse={() => {
-
               if (selectedCourses.includes(course || "")) {
                 setSelectedCourses(selectedCourses.filter((c) => c !== course));
               } else {
@@ -76,7 +78,6 @@ const DashboardPage: FC = () => {
           />
         ))}
       </div>
-     
     </main>
   );
 };

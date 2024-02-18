@@ -72,10 +72,11 @@ const SelectClassesPage: FC = () => {
           />
         ))}
       </div>
-      <button className="w-40 h-40 bg-slate-500 text-white"
+      <button
+        className="w-40 h-40 bg-slate-500 text-white"
         onClick={() => {
           console.log("I am continue");
-          router.push("/import")
+          router.push("/import");
         }}
       >
         Continue
