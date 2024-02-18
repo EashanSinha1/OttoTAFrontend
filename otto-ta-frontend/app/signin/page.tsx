@@ -16,6 +16,15 @@ const Home: FC = () => {
   return (
     
 
+    <div className="flex flex-col items-center w-[650px] h-[220px] bg-white rounded-[60px] shadow">
+      <h1 className="text-4xl font-bold text-black pt-10 pb-5"
+      >Sign in with google</h1>
+    <SignInWidget onSignIn={() => {
+      router.push("/token")
+        
+      }} signInText="Continue with Google" />
+
+
     // <main className="flex min-h-screen flex-col items-center justify-center py-0 bg-gradient-to-br from-purple-700 to-purple-300/90">
     <div className={lexend.className}>
     <div className="w-[1728px] h-[1117px] relative bg-gradient-to-r from-purple-700 to-fuchsia-400">
