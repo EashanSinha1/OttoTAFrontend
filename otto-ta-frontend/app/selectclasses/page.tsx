@@ -24,7 +24,7 @@ const SelectClassesPage: FC = () => {
     (async () => {
       const response = await fetch(
         "https://back.otto-ta.tech/canvasCourses/" +
-          "PL5ts8iyL3P8iz02im8Kd8U1y0U2",
+          "Tyler",
         {
           method: "GET",
         },
@@ -90,7 +90,7 @@ const SelectClassesPage: FC = () => {
             className="w-[260px] h-12 bg-purple-600 rounded-[14px] flex items-center justify-center hover:bg-purple-400 hover:text-white transition duration-300 font-lexend"
             onClick={() => {
               console.log("I am continue");
-              router.push("/import");
+              router.push("/dashboard");
             }}
           >
             <span className="text-center text-white text-xl font-medium font-lexend">

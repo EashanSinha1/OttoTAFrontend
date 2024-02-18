@@ -1,13 +1,34 @@
 "use client";
 import { FC, use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
+import { Lexend } from "next/font/google";
+import Link from "next/link";
+
+const lexend = Lexend({
+  subsets: ["latin"],
+  display: "swap",
+});
+
 
 const FlashcardSelectPage: FC = () => {
   const router = useRouter();
   const [files, setFiles] = useState([
-    "Lecture 1",
+    "L1 - LinkedLists and ArrayLists",
+    "L2 - Binary Search Trees",
+    "L3 - Trees Continued",
+    "L4 - HashMaps",
+    "L4 - HashMaps",
+    "L4 - HashMaps",
+    "L4 - HashMaps",
+    "L4 - HashMaps",
+    "L4 - HashMaps",
+    "L4 - HashMaps",
+    "L4 - HashMaps",
+    "L4 - HashMaps",
 
+    // ... other files
   ]);
+
 
   useEffect(() => {
 
@@ -19,6 +40,9 @@ const FlashcardSelectPage: FC = () => {
     setCheckedFiles((prevFiles) =>
       isChecked ? [...prevFiles, file] : prevFiles.filter((f) => f !== file),
     );
+  };
+  const goBack = () => {
+    router.push('/learn');
   };
 
   const handleGenerateReview = async () => {
@@ -34,10 +58,15 @@ const FlashcardSelectPage: FC = () => {
   };
 
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gradient-to-br from-purple-500 to-indigo-600">
+    <main className="flex min-h-screen flex-col items-center justify-center p-6 bg-gradient-to-r from-purple-700 to-fuchsia-400">
+      <div className={lexend.className}>
+      <button onClick={goBack} className="bg-purple-500 text-white px-4 py-2 mb-5 rounded-lg hover:bg-purple-600 focus:outline-none">
+          Back
+        </button>
       <h1 className="text-4xl text-white font-bold mb-10">
         Select the files you would like to generate flashcards for.
       </h1>
+      </div>
       <div className="flex flex-col items-center w-full max-w-lg px-4 py-8 bg-white shadow-lg rounded-lg">
         {files.map((file, index) => (
           <div key={index} className="flex items-center w-full mb-4">

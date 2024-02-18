@@ -16,7 +16,22 @@ const FlashcardPlayPage: FC = () => {
   const currentIndex = 1;
   const maxDex = 10;
   async function getCard() {
-    const data = await fetch("https://back.otto-ta.com/flashcard");
+    // const response = await fetch('https://back.otto-ta.tech/questions/Lab+02+slides.pdf', {
+    // method: 'POST',
+    // headers: {
+    //   'Content-Type': 'application/json',
+    // },
+    // // Include any necessary data in the body of the request
+    // body: JSON.stringify({
+    //   // data
+    // }),
+    // });
+
+    // // Check if the request was successful
+    // if (!response.ok) {
+    //   throw new Error(`HTTP error! status: ${response.status}`);
+    // }
+    const data = await fetch("https://back.otto-ta.tech/flashcard");
     const json = await data.json();
     setCardInfo({
       question: json.question,

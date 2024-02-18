@@ -1,7 +1,7 @@
 "use client";
 import { FC, useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/router";
+import { useRouter } from "next/navigation";
 import CourseComponent from "@/components/course-component";
 import { Lexend } from "next/font/google";
 import Link from "next/link";
@@ -11,10 +11,11 @@ const lexend = Lexend({
   display: "swap",
 });
 const DashboardPage: FC = () => {
+  const router = useRouter();
   const initialCourses = [
-    { name: 'Course 1', num: 'C1' },
-    { name: 'Course 2', num: 'C2' },
-    { name: 'Course 3', num: 'C3' },
+    { name: 'CS1332 Data Structures & Algorithms (C & GR)', num: 'C1' },
+    { name: 'Computer Organiz&Program - CS-2110-A', num: 'C2' },
+    { name: 'Chemical Principles II - CHEM-1212K-B', num: 'C3' },
   ];
   const [courses, setCourses] = useState(initialCourses);
   const [selectedCourses, setSelectedCourses] = useState([]);
@@ -36,6 +37,7 @@ const DashboardPage: FC = () => {
         return;
       }
       setSelectedCourses([...selectedCourses, course]);
+      router.push('/learn');
     }
   };
 
