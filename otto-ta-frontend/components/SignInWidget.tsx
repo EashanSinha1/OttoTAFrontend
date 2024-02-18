@@ -35,8 +35,9 @@ const SignInWidget: FC<SignInWidgetProps> = ({ onSignIn, signInText}) => {
 
         <div className="w-[543px] h-[105px] relative" onClick={signIn}>
             {signInText}
-            <div className="w-[543px] h-[105px] left-0 top-0 absolute bg-white rounded-[20px] border-2 border-neutral-400" />
+            <div className="w-[543px] h-[105px] left-0 top-0 absolute bg-white rounded-[20px] border-2 border-neutral-400 hover:bg-zinq-100 hover:text-neutral-400 transition duration-300">
             <div className="left-[129px] top-[26px] absolute text-center text-neutral-400 text-[35px] font-medium font-">Continue with Google</div>
+            </div>
             <img className="w-12 h-12 left-[55px] top-[29px] absolute" src="/Google Icon.svg" alt="Google Logo" />
             
         </div>
