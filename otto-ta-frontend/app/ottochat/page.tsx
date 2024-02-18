@@ -133,7 +133,7 @@ const ChatInterface: FC<{}> = () => {
       <div className="flex flex-col flex-grow">
         <div className='w-full flex items-center justify-center pt-5'>
           <div className={lexend.className}>
-          <h1 className='text-zinq-200 text-[40px] font-medium font-lexend'>OttoChat</h1>
+          <h1 className='text-zinq-200 text-[40px] font-medium font-lexend'>OttoChat AI</h1>
           </div>
 
         </div>

@@ -28,7 +28,7 @@ const DashboardPage: FC = () => {
     console.log(selectedCourses);
   }, [selectedCourses]);
 
-  const handleCourseClick = (course) => {
+  const handleCourseClick = (course: any) => {
     if (selectedCourses.includes(course)) {
       setSelectedCourses(selectedCourses.filter((c) => c !== course));
     } else {
