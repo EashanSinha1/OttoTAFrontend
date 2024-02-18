@@ -25,7 +25,7 @@ const SignInWidget: FC<SignInWidgetProps> = ({ onSignIn, signInText}) => {
 
         <div>
             <button
-                className="text-white px-3 py-2 rounded-lg bg-green-600 hover:text-white sm:text-sm hover:scale-105"
+                className="text-white px-3 py-2 text-2xl rounded-lg bg-green-600 hover:text-white hover:scale-105"
                 onClick={signIn} >
                 {signInText}
             </button>
