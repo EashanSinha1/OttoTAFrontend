@@ -1,25 +1,18 @@
 "use client";
-import { FC, useEffect, useState } from "react";
+import { FC, use, useEffect, useState } from "react";
 import { useRouter } from "next/navigation";
 
 const FlashcardSelectPage: FC = () => {
   const router = useRouter();
   const [files, setFiles] = useState([
-    "L1 - LinkedLists and ArrayLists",
-    "L2 - Binary Search Trees",
-    "L3 - Trees Continued",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
+    "Lecture 1",
 
-    // ... other files
   ]);
+
+  useEffect(() => {
+
+    
+  }, []);
   const [checkedFiles, setCheckedFiles] = useState<string[]>([]);
 
   const handleFileCheck = (file: string, isChecked: boolean) => {

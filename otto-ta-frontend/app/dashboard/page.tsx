@@ -1,32 +1,23 @@
 "use client";
 import { FC, useEffect, useState } from "react";
 import Image from "next/image";
-import { useRouter } from "next/navigation";
-import { auth } from "../../auth/firebase";
+import { useRouter } from "next/router";
 import CourseComponent from "@/components/course-component";
+import { Lexend } from "next/font/google";
+import Link from "next/link";
 
+const lexend = Lexend({
+  subsets: ["latin"],
+  display: "swap",
+});
 const DashboardPage: FC = () => {
-  const [courses, setCourses] = useState([{ name: "", num: "" }]);
-  const [selectedCourses, setSelectedCourses] = useState([
-    { name: "", num: "" },
-  ]);
-
-  const router = useRouter();
-
-  useEffect(() => {
-    console.log(auth.currentUser);
-    (async () => {
-      const response = await fetch(
-        "https://back.otto-ta.tech/user_courses/" +
-          "PL5ts8iyL3P8iz02im8Kd8U1y0U2",
-        {
-          method: "GET",
-        },
-      );
-      const data = await response.json();
-      setCourses(data);
-    })();
-  }, []);
+  const initialCourses = [
+    { name: 'Course 1', num: 'C1' },
+    { name: 'Course 2', num: 'C2' },
+    { name: 'Course 3', num: 'C3' },
+  ];
+  const [courses, setCourses] = useState(initialCourses);
+  const [selectedCourses, setSelectedCourses] = useState([]);
 
   useEffect(() => {
     console.log(courses);
@@ -36,8 +27,8 @@ const DashboardPage: FC = () => {
     console.log(selectedCourses);
   }, [selectedCourses]);
 
-  const handleCourseClick = (course: any) => {
-    if (selectedCourses.includes(course || "")) {
+  const handleCourseClick = (course) => {
+    if (selectedCourses.includes(course)) {
       setSelectedCourses(selectedCourses.filter((c) => c !== course));
     } else {
       if (selectedCourses.length >= 5) {
@@ -47,11 +38,13 @@ const DashboardPage: FC = () => {
       setSelectedCourses([...selectedCourses, course]);
     }
   };
+
   return (
     <main className="flex min-h-screen flex-col items-center py-0 bg-gradient-to-br from-purple-700 to-purple-300/90">
-      <h1 className="text-6xl pt-10">Which course did you want help on</h1>
+      <div className={lexend.className}>
+      <h1 className="text-6xl flex justify-center pt-10 font-lexend">Which course did you want help on</h1>
       <h1
-        className="text-2xl pt-10"
+        className="text-2xl flex justify-center pt-10 pb-10 font-lexend"
         // eslint-disable-next-line react/no-unescaped-entities
       >
         Do not worry, you can revisit the other courses later!
@@ -63,20 +56,10 @@ const DashboardPage: FC = () => {
             key={index}
             courseName={course.name}
             courseNum={course.num}
-            onClickCourse={() => {
-              if (selectedCourses.includes(course || "")) {
-                setSelectedCourses(selectedCourses.filter((c) => c !== course));
-              } else {
-                if (selectedCourses.length >= 5) {
-                  alert(`You can only select ${5} courses`);
-                  return;
-                }
-                setSelectedCourses([...selectedCourses, course]);
-              }
-              console.log(`Course ${course.name} clicked`);
-            }}
+            onClickCourse={() => handleCourseClick(course)}
           />
         ))}
+      </div>
       </div>
     </main>
   );
