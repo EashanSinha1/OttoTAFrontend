@@ -54,6 +54,7 @@ const ChatInterface: FC<{}> = () => {
 
   const fetchStreamResponse = async (question: string) => {
     setSources([]);
+    setAnswerText('');
     const user = "tEmpiJVhWOUBxhoD5acyaNluvIw1"
     const course = "85970000000158100"
     const files="Lab+04+C02+slides.pdf"
