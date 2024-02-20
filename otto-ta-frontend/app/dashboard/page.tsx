@@ -28,7 +28,7 @@ const DashboardPage: FC = () => {
     console.log(selectedCourses);
   }, [selectedCourses]);
 
-  const handleCourseClick = (course: any) => {
+  const handleCourseClick = (course: object) => {
     if (selectedCourses.includes(course)) {
       setSelectedCourses(selectedCourses.filter((c) => c !== course));
     } else {
@@ -39,6 +39,7 @@ const DashboardPage: FC = () => {
       setSelectedCourses([...selectedCourses, course]);
       router.push('/learn');
     }
+  
   };
 
   return (

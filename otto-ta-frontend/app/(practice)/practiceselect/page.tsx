@@ -5,18 +5,18 @@ import { useRouter } from "next/navigation";
 const PracticeSelectPage: FC = () => {
   const router = useRouter();
   const [files, setFiles] = useState([
-    "L1 - LinkedLists and ArrayLists",
-    "L2 - Binary Search Trees",
-    "L3 - Trees Continued",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
-    "L4 - HashMaps",
+    "L1 - Binary & IEEE",
+    "L2 - State Machines",
+    "L3 - CPU Architecture",
+    "L4 - LC3",
+    "L5 - Circuit Design",
+    "L6 - Datapath",
+    "L7 - Assembly",
+    "L8 - Assembly pt 2",
+    "L9 - C",
+    "L10 - C pt 2",
+    "L11 - C pt 3",
+    "L12 - C++",
 
     // ... other files
   ]);
